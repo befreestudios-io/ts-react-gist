@@ -5,6 +5,7 @@
 A simple React component that embeds a github.com gist. Built with modern functional components and typescript.
 
 ## Install Package
+
 ```
   npm install @befreestudios/ts-react-gist
 ```
