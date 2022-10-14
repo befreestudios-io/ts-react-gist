@@ -1,7 +1,13 @@
 # ts-react-gist
 
+[![NPM](https://nodei.co/npm/@befreestudios/ts-react-gist.png)](https://www.npmjs.com/package/@befreestudios/ts-react-gist)
+
 A simple React component that embeds a github.com gist. Built with modern functional components and typescript.
 
+## Install Package
+```
+  npm install @befreestudios/ts-react-gist
+```
 ## Available types and props
 
 NOTE: Url is a combination of your github username and gist ID.
@@ -16,12 +22,6 @@ type TS_REACT_GIST = {
   url: string;
   filename?: string;
 };
-```
-
-# Usage
-
-```
-<TSReactGist url={string} filename={?string}/>
 ```
 
 ## Example Usage (single-file gist)
