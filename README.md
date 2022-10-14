@@ -1,11 +1,7 @@
 # ts-react-gist
-![CI PIPELINE - MAIN](https://github.com/github/docs/actions/workflows/node.js.yml/badge.svg?branch=main)
+![CI](https://github.com/github/docs/actions/workflows/node.yml/badge.svg)
 
-![CI PIPELINE - DEV](https://github.com/github/docs/actions/workflows/node.js.yml/badge.svg?branch=develop)
-
-![CI PIPELINE - MAIN](https://github.com/github/docs/actions/workflows/codeql.yml/badge.svg?branch=main)
-
-![CI PIPELINE - DEV](https://github.com/github/docs/actions/workflows/codeql.yml/badge.svg?branch=develop)
+![CodeQL](https://github.com/github/docs/actions/workflows/codeql.yml/badge.svg)
 
 A simple React component that embeds a github.com gist. Built with modern functional components and typescript.
 
