@@ -5,15 +5,27 @@ export type TS_REACT_GIST = {
   filename?: string;
 };
 
+interface TC_IFRAME extends HTMLIFrameElement {
+  document?: Document;
+}
+
 const DefaultTSReactGistProps = {
   filename: undefined,
 };
 
+/**
+ * TSReactGist
+ * @param {TS_REACT_GIST} {
+ *   url,
+ *   filename = DefaultTSReactGistProps.filename,
+ * }
+ * @return {JSX.Element}
+ */
 const TSReactGist: React.FC<TS_REACT_GIST> = ({
   url,
   filename = DefaultTSReactGistProps.filename,
-}) => {
-  const iframeNode = React.createRef<React.LegacyRef<HTMLIFrameElement>>();
+}: TS_REACT_GIST): JSX.Element => {
+  const iframeNode = React.createRef<TC_IFRAME>();
 
   /**
    * buildUrl
@@ -28,35 +40,44 @@ const TSReactGist: React.FC<TS_REACT_GIST> = ({
    * updateIframeContent
    */
   const updateIframeContent = () => {
-    const iframe: React.LegacyRef<HTMLIFrameElement> | any = iframeNode.current;
-    let doc = iframe.document;
+    const iframe: TC_IFRAME | null = iframeNode?.current;
+    if (iframe) {
+      const gistLink = buildUrl();
+      const gistScript = `<script type="text/javascript" src="${gistLink}"></script>`;
+      const styles = "<style>*{font-size:12px;}</style>";
+      const elementId = filename ? `gist-${url}-${filename}` : `gist-${url}`;
+      const resizeScript = `onload="parent.document.getElementById('${elementId}').style.height=document.body.scrollHeight + 'px'"`;
+      const iframeHtml = `<html><head><base target="_parent">${styles}</head><body ${resizeScript}>${gistScript}</body></html>`;
 
-    if (iframe.contentDocument) doc = iframe.contentDocument;
-    else if (iframe.contentWindow) doc = iframe.contentWindow.document;
+      let doc = iframe.document;
 
-    const gistLink = buildUrl();
-    const gistScript = `<script type="text/javascript" src="${gistLink}"></script>`;
-    const styles = "<style>*{font-size:12px;}</style>";
-    const elementId = filename ? `gist-${url}-${filename}` : `gist-${url}`;
-    const resizeScript = `onload="parent.document.getElementById('${elementId}').style.height=document.body.scrollHeight + 'px'"`;
-    const iframeHtml = `<html><head><base target="_parent">${styles}</head><body ${resizeScript}>${gistScript}</body></html>`;
+      if (iframe.contentDocument) {
+        doc = iframe.contentDocument;
+      } else if (iframe.contentWindow) {
+        doc = iframe.contentWindow.document;
+      }
 
-    doc.open();
-    doc.writeln(iframeHtml);
-    doc.close();
+      if (doc) {
+        doc.open();
+        doc.writeln(iframeHtml);
+        doc.close();
+      }
+    }
   };
 
   React.useEffect(() => {
     updateIframeContent();
   });
 
+  const iFrameID = filename ? `gist-${url}-${filename}` : `gist-${url}`;
   return (
     <iframe
-      title={filename ? `gist-${url}-${filename}` : `gist-${url}`}
-      ref={iframeNode as any}
+      title={iFrameID}
+      ref={iframeNode}
+      data-testid={iFrameID}
       width="100%"
       frameBorder={0}
-      id={filename ? `gist-${url}-${filename}` : `gist-${url}`}
+      id={iFrameID}
     />
   );
 };
