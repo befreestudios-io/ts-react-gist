@@ -1,0 +1,16 @@
+dist
+
+.eslintrc.json
+jest.config.js
+jest.setup.js
+package-lock.json
+package.json
+prettierrc.json
+README.md
+rollup.config.js
+babel.config.js
+SECURITY.md
+tsconfig.json
+
+.github/
+.husky/
