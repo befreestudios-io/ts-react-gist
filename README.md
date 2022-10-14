@@ -1,7 +1,4 @@
-# ts-react-gist
-![CI](https://github.com/github/docs/actions/workflows/node.yml/badge.svg)
-
-![CodeQL](https://github.com/github/docs/actions/workflows/codeql.yml/badge.svg)
+# ts-react-gist ![CI](https://github.com/github/docs/actions/workflows/node.yml/badge.svg) | ![CodeQL](https://github.com/github/docs/actions/workflows/codeql.yml/badge.svg)
 
 A simple React component that embeds a github.com gist. Built with modern functional components and typescript.
 
