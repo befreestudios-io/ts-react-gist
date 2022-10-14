@@ -8,6 +8,7 @@ package.json
 prettierrc.json
 README.md
 rollup.config.js
+babel.config.js
 SECURITY.md
 tsconfig.json
 

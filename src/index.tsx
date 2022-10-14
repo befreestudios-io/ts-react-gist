@@ -69,13 +69,15 @@ const TSReactGist: React.FC<TS_REACT_GIST> = ({
     updateIframeContent();
   });
 
+  const iFrameID = filename ? `gist-${url}-${filename}` : `gist-${url}`;
   return (
     <iframe
-      title={filename ? `gist-${url}-${filename}` : `gist-${url}`}
+      title={iFrameID}
       ref={iframeNode}
+      data-testid={iFrameID}
       width="100%"
       frameBorder={0}
-      id={filename ? `gist-${url}-${filename}` : `gist-${url}`}
+      id={iFrameID}
     />
   );
 };
