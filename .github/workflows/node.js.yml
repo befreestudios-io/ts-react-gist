@@ -35,6 +35,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install js-dom
+        run: |
+          npx install -D jest-environment-jsdom
+
       - name: Run tests with coverage
         run: |
           npx jest --coverage --coverageReporters json-summary
