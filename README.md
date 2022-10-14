@@ -1,5 +1,8 @@
 # ts-react-gist
-![CI](https://https://github.com/befreestudios-io/ts-react-gist/workflows/CI/badge.svg)
+![CI PIPELINE - MAIN](https://www.github.com/befreestudios-io/ts-react-gist/.github/workflows/node.js.yml/badge.svg?branch=main)
+
+![CI PIPELINE - DEV](https://www.github.com/befreestudios-io/ts-react-gist/.github/workflows/node.js.yml/badge.svg?branch=develop)
+
 A simple React component that embeds a github.com gist. Built with modern functional components and typescript.
 
 <br/>
