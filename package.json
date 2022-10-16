@@ -6,10 +6,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": "^16.18.0",
-    "vscode": "^1.22.0"
-  },
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
