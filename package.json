@@ -1,6 +1,6 @@
 {
   "name": "@befreestudios/ts-react-gist",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Embeds a github gist in your modern typescript react app. A modern functional react component built with typescript.",
   "main": "dist/index.js",
   "files": [
